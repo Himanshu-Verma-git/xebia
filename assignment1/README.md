@@ -28,3 +28,14 @@ A simple, Dockerized Inventory Management System with basic CRUD operations.
 - **Web Server / Reverse Proxy**: Nginx
 
 ## Deployment
+I have used AWS for deployment/
+
+- Create a new EC2
+- inbound rules:
+	- http, port: 80; (configure in nginx if you want to change port)
+	- ssh, port 40; if you want to do everything via a ssh.
+- install docker and docker compose
+- clone the repo
+- ru n ``` docker compose up -d --build```
+
+Access your inventory system via DNS configured or ec2 public dns.

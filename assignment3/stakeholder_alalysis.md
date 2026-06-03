@@ -86,6 +86,4 @@ Recruiters influence hiring outcomes but interact primarily during recruitment c
 
 These stakeholders are primary users and highly impacted by system functionality.
 
-## Low Influence, Medium Interest
-
 ---

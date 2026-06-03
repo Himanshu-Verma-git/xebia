@@ -1,260 +1,431 @@
 # Wireframes — AI-Powered Placement Management Platform
 
-> **Deliverable:** Wireframe Documentation
-> **Screens covered:** Dashboard (Home) · Student Profile & AI Match · Company & Drive Management · Reports & Analytics
+## 1. User Registration & Login
+
+### Purpose
+Secure entry point for all user types (Student, Recruiter, Placement Coordinator).
+
+### Screen: Login Page
+
+```
++----------------------------------------------------------+
+|         AI Placement Platform           [Logo]           |
++----------------------------------------------------------+
+|                                                          |
+|              +-------------------------------+           |
+|              |        Welcome Back!          |           |
+|              |                               |           |
+|              |  Email:                       |           |
+|              |  [_____________________________]          |
+|              |                               |           |
+|              |  Password:                    |           |
+|              |  [_____________________________]          |
+|              |                               |           |
+|              |  Role: [ Student ▼ ]          |           |
+|              |                               |           |
+|              |  [x] Remember Me              |           |
+|              |                               |           |
+|              |  [        LOGIN        ]      |           |
+|              |                               |           |
+|              |  Forgot Password? | Sign Up   |           |
+|              +-------------------------------+           |
+|                                                          |
+|              OR  [ Login with Google ]                   |
+|                                                          |
++----------------------------------------------------------+
+```
+
+### Screen: Registration Page
+
+```
++----------------------------------------------------------+
+|         AI Placement Platform           [Logo]           |
++----------------------------------------------------------+
+|                                                          |
+|           +----------------------------------+           |
+|           |         Create Account           |           |
+|           |                                  |           |
+|           |  Full Name: [__________________] |           |
+|           |  Email:     [__________________] |           |
+|           |  Password:  [__________________] |           |
+|           |  Confirm:   [__________________] |           |
+|           |                                  |           |
+|           |  I am a:  ( ) Student            |           |
+|           |            ( ) Recruiter         |           |
+|           |            ( ) Coordinator       |           |
+|           |                                  |           |
+|           |  College/Company: [____________] |           |
+|           |                                  |           |
+|           |  [x] I agree to Terms & Policy   |           |
+|           |                                  |           |
+|           |  [      CREATE ACCOUNT     ]     |           |
+|           |                                  |           |
+|           |  Already have an account? Login  |           |
+|           +----------------------------------+           |
+|                                                          |
++----------------------------------------------------------+
+```
+
+### Interactions
+- Role dropdown dynamically changes additional fields (College vs. Company)
+- Inline validation on all fields
+- On success → redirects to respective dashboard based on role
 
 ---
 
-## Screen 1 — Dashboard (Home)
+## 2. Student Profile Management
+
+### Purpose
+Students create and maintain their academic, skill, and career profiles used by the AI recommendation engine.
+
+### Screen: Student Profile Page
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  NAVBAR                                                             │
-│  [ Logo ]      Dashboard · Students · Companies · Reports           │
-│                                              [ 🔔 ] [ Admin ▼ ]     │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  Welcome back, Admin 👋  —  Batch 2025          [ + Post Drive ]    │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌──────────────┬──────────────┬──────────────┬────────────────────────┐
-│  Total       │  Placed      │  Companies   │  Drives This Month     │
-│  Students    │  Students    │  Registered  │                        │
-│    1,240     │    874       │     63       │        12              │
-│  ↑ 4% batch  │  70.5% rate  │  ↑ 8 new     │  3 upcoming            │
-└──────────────┴──────────────┴──────────────┴────────────────────────┘
-
-┌────────────────────────────────────┬────────────────────────────────┐
-│  PLACEMENT TREND  (Line Chart)     │  TOP RECRUITING COMPANIES      │
-│                                    │  (Horizontal Bar Chart)        │
-│   ▲                                │                                │
-│   │       ╭──╮                     │  Company A    ██████████  48   │
-│   │  ╭────╯  ╰──╮                  │  Company B    ████████    39   │
-│   │──╯          ╰──                │  Company C    ███████     31   │
-│   └─────────────────────►          │  Company D    ██████      27   │
-│    Jan  Feb  Mar  Apr  May  Jun     │  Company E    █████       24   │
-└────────────────────────────────────┴────────────────────────────────┘
-
-┌────────────────────────────────────┬────────────────────────────────┐
-│  UPCOMING PLACEMENT DRIVES         │  AI INSIGHTS PANEL             │
-│                                    │                                │
-│  ┌──────────────────────────────┐  │  ┌────────────────────────┐   │
-│  │ 🏢 Company A   │  Jun 10     │  │  │ 🤖 AI Recommendation   │   │
-│  │ Role: SDE      │  42 eligible│  │  │                        │   │
-│  │                [View Details]│  │  │ "87 students match     │   │
-│  ├──────────────────────────────┤  │  │  SDE profile. 12 are   │   │
-│  │ 🏢 Company B   │  Jun 14     │  │  │  high-priority."       │   │
-│  │ Role: Analyst  │  30 eligible│  │  │                        │   │
-│  │                [View Details]│  │  │      [View Matches]    │   │
-│  ├──────────────────────────────┤  │  └────────────────────────┘   │
-│  │ 🏢 Company C   │  Jun 19     │  │                               │
-│  │ Role: SDE-I    │  55 eligible│  │  ┌────────────────────────┐   │
-│  │                [View Details]│  │  │ ⚠️  Alert              │   │
-│  └──────────────────────────────┘  │  │ "23 students have not  │   │
-│                                    │  │  updated resumes."     │   │
-│           [ View All Drives ]      │  │      [Notify Them]     │   │
-│                                    │  └────────────────────────┘   │
-└────────────────────────────────────┴────────────────────────────────┘
++----------------------------------------------------------+
+| [≡ Menu]   AI Placement Platform         [Bell] [Avatar] |
++----------------------------------------------------------+
+| Sidebar:         |    STUDENT PROFILE                    |
+| [🏠 Dashboard]   |                                       |
+| [👤 Profile]  ◄  |  +--------+  Garv Sharma             |
+| [🔍 Jobs]        |  | Photo  |  B.Tech CSE | 3rd Year    |
+| [📄 Resume]      |  | Upload |  CGPA: 8.7                |
+| [📋 Applications]|  +--------+  [Edit Profile]           |
+| [🔔 Alerts]      |  ----------------------------------------|
+|                  |  PERSONAL INFO        [✏ Edit]        |
+|                  |  Email:  garv@example.com              |
+|                  |  Phone:  +91-XXXXXXXXXX                |
+|                  |  City:   Delhi                         |
+|                  |  ----------------------------------------|
+|                  |  ACADEMICS            [✏ Edit]        |
+|                  |  Degree:    B.Tech CSE                 |
+|                  |  College:   XYZ Institute              |
+|                  |  Year:      3rd Year                   |
+|                  |  CGPA:      8.7 / 10                   |
+|                  |  ----------------------------------------|
+|                  |  SKILLS               [✏ Edit]        |
+|                  |  [Python] [ML] [React] [SQL] [+ Add]  |
+|                  |  ----------------------------------------|
+|                  |  EXPERIENCE           [✏ Edit]        |
+|                  |  • ML Intern – XYZ Corp (Jun–Aug 2024) |
+|                  |  [+ Add Experience]                    |
+|                  |  ----------------------------------------|
+|                  |  PROJECTS             [✏ Edit]        |
+|                  |  • AI Resume Analyser (GitHub Link)    |
+|                  |  [+ Add Project]                       |
+|                  |  ----------------------------------------|
+|                  |  Profile Strength:  [====== 80%  ]    |
+|                  |  Tip: Add certifications to reach 100%|
++----------------------------------------------------------+
 ```
+
+### Interactions
+- Inline edit on each section
+- Skill tags are searchable and auto-suggested
+- Profile strength meter updates dynamically
+- Profile data feeds directly into AI job recommendations
 
 ---
 
-## Screen 2 — Student Profile & AI Match Score
+## 3. Recruiter Dashboard
+
+### Purpose
+Recruiters post job opportunities, manage applications, and track hiring progress.
+
+### Screen: Recruiter Dashboard
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  NAVBAR                                                             │
-│  [ Logo ]      Dashboard · Students · Companies · Reports           │
-│                                              [ 🔔 ] [ Admin ▼ ]     │
-└─────────────────────────────────────────────────────────────────────┘
-
-  ← Back to Students List
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  ┌─────────┐   Student Name                        AI Match Score  │
-│  │  Photo  │   B.Tech Computer Science | 2025 Batch  ┌──────────┐  │
-│  │         │   CGPA: 8.7  |  City                    │    87    │  │
-│  └─────────┘   📧 student@college.edu                │  / 100 🤖│  │
-│                📞 +91 XXXXX XXXXX                    └──────────┘  │
-│                                      [Edit Profile]  [Download CV] │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌──────────────────────┬────────────────────────┬─────────────────────┐
-│  SKILLS              │  ACADEMIC DETAILS       │  PLACEMENT STATUS   │
-│                      │                         │                     │
-│  Python      ████▓░  │  10th  :  91.0 %        │  Status: Eligible   │
-│  Java        ████░░  │  12th  :  88.5 %        │  Applied   :  4     │
-│  React       ███░░░  │  CGPA  :  8.7           │  Shortlisted:  2    │
-│  SQL         ████▓░  │  Backlogs: None          │  Interviews :  1    │
-│  ML / AI     ███░░░  │  Branch: CSE             │  Offers     :  1    │
-│  [+ Add Skill]       │  Semester: 8             │                     │
-│                      │                         │  [Mark as Placed]   │
-└──────────────────────┴────────────────────────┴─────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  AI-RECOMMENDED DRIVES                                              │
-│                                                                     │
-│  ┌─────────────────────────────────────────────────────────────┐   │
-│  │  🏢 Company A  — SDE              Match: 94 %  [Apply Now]  │   │
-│  │  🏢 Company B  — Software Analyst Match: 88 %  [Apply Now]  │   │
-│  │  🏢 Company C  — SDE-I            Match: 82 %  [Apply Now]  │   │
-│  │  🏢 Company D  — Tech Consultant  Match: 75 %  [Apply Now]  │   │
-│  └─────────────────────────────────────────────────────────────┘   │
-│                                     [ View All Eligible Drives ]    │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌──────────────────────────────────────┬──────────────────────────────┐
-│  APPLICATION HISTORY                 │  RESUME & DOCUMENTS          │
-│                                      │                              │
-│  Company A  │ SDE       │ Shortlisted│  📄 Resume_2025.pdf          │
-│  Company B  │ Analyst   │ Under Review│  📄 Offer_Letter.pdf        │
-│  Company C  │ Developer │ Rejected   │  📄 10th_Certificate.pdf     │
-│  Company D  │ Engineer  │ Offer Rcvd │                              │
-│                                      │          [ + Upload File ]   │
-└──────────────────────────────────────┴──────────────────────────────┘
++----------------------------------------------------------+
+| [≡ Menu]   AI Placement Platform         [Bell] [Avatar] |
++----------------------------------------------------------+
+| Sidebar:            |  RECRUITER DASHBOARD               |
+| [🏠 Dashboard]  ◄   |                                    |
+| [📢 Post Job]       |  +----------+ +----------+         |
+| [📋 Applications]   |  | Active   | | Total     |        |
+| [👥 Candidates]     |  | Jobs: 4  | | Applicants|        |
+| [📅 Interviews]     |  +----------+ | : 87      |        |
+| [⚙ Settings]        |              +----------+          |
+|                     |  +----------+ +----------+          |
+|                     |  | Interviews| | Shortlisted|       |
+|                     |  | Today: 3  | | : 12      |        |
+|                     |  +----------+ +----------+          |
+|                     |  ----------------------------------- |
+|                     |  ACTIVE JOB POSTINGS               |
+|                     |                                    |
+|                     |  +--------------------------------+ |
+|                     |  | SDE Intern    | 34 Applicants | |
+|                     |  | Posted: 2d ago| [View] [Close]| |
+|                     |  +--------------------------------+ |
+|                     |  | ML Engineer   | 18 Applicants | |
+|                     |  | Posted: 5d ago| [View] [Close]| |
+|                     |  +--------------------------------+ |
+|                     |  | Data Analyst  | 35 Applicants | |
+|                     |  | Posted: 1w ago| [View] [Close]| |
+|                     |  +--------------------------------+ |
+|                     |  [+ Post New Job]                  |
+|                     |  ---------------------------------- |
+|                     |  RECENT APPLICATIONS               |
+|                     |  • Rahul S. → SDE Intern [Review]  |
+|                     |  • Priya M. → ML Engineer [Review] |
++----------------------------------------------------------+
 ```
+
+### Screen: Post New Job
+
+```
++----------------------------------------------------------+
+|  POST A NEW JOB                              [X Close]   |
++----------------------------------------------------------+
+|  Job Title:      [______________________________]        |
+|  Department:     [______________________________]        |
+|  Location:       [______________________________]        |
+|  Job Type:       ( ) Full-Time  ( ) Internship           |
+|  CTC / Stipend:  [____________]                          |
+|  Deadline:       [📅 Date Picker]                        |
+|  Eligibility:    CGPA ≥ [___] | Branches: [__________]  |
+|  Description:                                            |
+|  +----------------------------------------------------+  |
+|  |  (Text Area — JD, responsibilities, requirements)  |  |
+|  +----------------------------------------------------+  |
+|  Required Skills: [Python ×] [SQL ×] [+ Add Skill]      |
+|                                                          |
+|  [   SAVE DRAFT   ]        [   PUBLISH JOB   ]          |
++----------------------------------------------------------+
+```
+
+### Interactions
+- Stats cards are clickable → drill-down view
+- Job cards link to applicant list with filter/sort
+- New job form has field validations and skill autocomplete
 
 ---
 
-## Screen 3 — Company & Drive Management
+## 4. AI-Based Job Recommendations
+
+### Purpose
+Display personalized job matches to students using AI analysis of their profile, skills, and preferences.
+
+### Screen: Recommendations Feed
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  NAVBAR                                                             │
-│  [ Logo ]      Dashboard · Students · Companies · Reports           │
-│                                              [ 🔔 ] [ Admin ▼ ]     │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  Companies & Drives                          [ + Add Company ]      │
-│  [ 🔍 Search company name... ]   Filter: [ Sector ▼ ] [ Status ▼ ] │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  ┌──────┬──────────────┬────────────┬────────┬────────┬──────────┐  │
-│  │ Logo │ Company Name │ Sector     │ Drives │ Offers │ Actions  │  │
-│  ├──────┼──────────────┼────────────┼────────┼────────┼──────────┤  │
-│  │  A   │ Company A    │ Technology │   3    │   48   │ [View]   │  │
-│  │  B   │ Company B    │ Technology │   2    │   39   │ [View]   │  │
-│  │  C   │ Company C    │ Consulting │   2    │   22   │ [View]   │  │
-│  │  D   │ Company D    │ IT Services│   4    │   27   │ [View]   │  │
-│  │  E   │ Company E    │ IT Services│   5    │   24   │ [View]   │  │
-│  └──────┴──────────────┴────────────┴────────┴────────┴──────────┘  │
-│  Showing 1–5 of 63 companies        [ < 1  2  3  ...  13 > ]        │
-└─────────────────────────────────────────────────────────────────────┘
-
- ── When [View] is clicked, a side panel slides in from the right ──
-
-┌────────────────────────────────────────────────────────────────────┐
-│  DRIVE DETAIL SIDE PANEL                        [Edit]  [Close ×] │
-│  ────────────────────────────────────────────────────────────────  │
-│  🏢 Company A — SDE Drive                                          │
-│                                                                    │
-│  Date        :  June 10, 2025                                      │
-│  Package     :  ₹ 18 LPA                                           │
-│  Location    :  City (Hybrid)                                      │
-│  Eligibility :  CGPA ≥ 7.5 | No active backlogs | CSE / IT / ECE  │
-│  Process     :  Online Test → Technical Interview → HR Round       │
-│  Deadline    :  June 5, 2025                                       │
-│                                                                    │
-│  ┌───────────────────────────┬──────────────────────────────────┐ │
-│  │  ELIGIBLE STUDENTS (42)   │  AI SHORTLIST — Top 15           │ │
-│  │                           │                                  │ │
-│  │  [ 🔍 Search student... ] │  Student A         Score: 94     │ │
-│  │                           │  Student B         Score: 91     │ │
-│  │  ☑ Student A    CGPA 8.7  │  Student C         Score: 89     │ │
-│  │  ☑ Student B    CGPA 8.5  │  Student D         Score: 86     │ │
-│  │  ☐ Student C    CGPA 7.8  │  Student E         Score: 84     │ │
-│  │  ☐ Student D    CGPA 7.6  │                                  │ │
-│  │  ☐ Student E    CGPA 7.5  │       [ View All AI Picks ]      │ │
-│  └───────────────────────────┴──────────────────────────────────┘ │
-│                                                                    │
-│              [ Send Invites to Selected ]   [ Export List ]        │
-└────────────────────────────────────────────────────────────────────┘
++----------------------------------------------------------+
+| [≡ Menu]   AI Placement Platform         [Bell] [Avatar] |
++----------------------------------------------------------+
+| Sidebar:            |  AI JOB RECOMMENDATIONS            |
+| [🏠 Dashboard]      |                                    |
+| [✨ Recommendations]◄|  Based on your profile & skills   |
+| [🔍 Browse Jobs]    |                                    |
+| [📄 Resume]         |  FILTERS:  [Role ▼] [Location ▼]  |
+| [📋 Applications]   |            [Salary ▼] [Type ▼]    |
+|                     |  ---------------------------------- |
+|                     |                                    |
+|                     |  +--------------------------------+ |
+|                     |  | ★ 96% Match                   | |
+|                     |  | ML Engineer Intern             | |
+|                     |  | Google India  |  Bangalore     | |
+|                     |  | Stipend: ₹60,000/month         | |
+|                     |  | Deadline: 15 Jul 2025          | |
+|                     |  | Skills: Python ✓ ML ✓ SQL ✓    | |
+|                     |  |  [Save]     [Apply Now →]      | |
+|                     |  +--------------------------------+ |
+|                     |                                    |
+|                     |  +--------------------------------+ |
+|                     |  | ★ 88% Match                   | |
+|                     |  | Data Analyst                   | |
+|                     |  | Flipkart  |  Remote            | |
+|                     |  | CTC: ₹8 LPA                   | |
+|                     |  | Deadline: 20 Jul 2025          | |
+|                     |  | Skills: SQL ✓ Python ✓         | |
+|                     |  |  [Save]     [Apply Now →]      | |
+|                     |  +--------------------------------+ |
+|                     |                                    |
+|                     |  +--------------------------------+ |
+|                     |  | ★ 81% Match                   | |
+|                     |  | SDE – Backend                  | |
+|                     |  | Swiggy  |  Hyderabad           | |
+|                     |  | CTC: ₹12 LPA                  | |
+|                     |  | Skills: React ✗  SQL ✓         | |
+|                     |  |  [Save]     [Apply Now →]      | |
+|                     |  +--------------------------------+ |
+|                     |                                    |
+|                     |  [Load More Recommendations]       |
++----------------------------------------------------------+
 ```
+
+### Interactions
+- Match % calculated from AI model comparing profile vs. job requirements
+- Skills shown with ✓ (matched) or ✗ (gap) per listing
+- "Save" bookmarks the job; "Apply Now" initiates the application flow
+- Filters dynamically re-rank the recommendations
 
 ---
 
-## Screen 4 — Reports & Analytics
+## 5. Resume Upload & Analysis
+
+### Purpose
+Students upload their resume; the AI engine parses and provides actionable feedback.
+
+### Screen: Resume Upload Page
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  NAVBAR                                                             │
-│  [ Logo ]      Dashboard · Students · Companies · Reports           │
-│                                              [ 🔔 ] [ Admin ▼ ]     │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  Placement Reports                                                  │
-│  Batch: [ 2025 ▼ ]   Branch: [ All ▼ ]        [ 📥 Export as PDF ] │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌──────────────┬──────────────┬──────────────┬────────────────────────┐
-│  Placement % │  Avg. Package│  Highest Pkg │  Total Offers          │
-│    70.5 %    │  ₹ 12.4 LPA  │  ₹ 42 LPA    │    874                │
-│  ↑ vs 2024   │  ↑ ₹1.2 LPA  │  Company A   │  Across 63 companies  │
-└──────────────┴──────────────┴──────────────┴────────────────────────┘
-
-┌────────────────────────────────────┬────────────────────────────────┐
-│  BRANCH-WISE PLACEMENT (Bar Chart) │  PACKAGE DISTRIBUTION (Pie)    │
-│                                    │                                │
-│  CSE  ████████████████████  89 %   │          ╭──────╮             │
-│  IT   ████████████████░░░░  76 %   │        ╱  ░░░░░░  ╲           │
-│  ECE  ████████████░░░░░░░░  68 %   │       │  ▓▓▓ ░░░░  │          │
-│  EEE  ██████████░░░░░░░░░░  55 %   │        ╲   ▓▓▓░░  ╱           │
-│  MECH ████████░░░░░░░░░░░░  42 %   │          ╰──────╯             │
-│                                    │   ░ < ₹5L   ▓ ₹5–15L          │
-│       Hover bar for exact count    │   █ > ₹15L                    │
-└────────────────────────────────────┴────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  YEAR-OVER-YEAR COMPARISON (Multi-line Chart)                       │
-│                                                                     │
-│  100 % ─                                                            │
-│   80 % ─            ╭────────╮         ╭───                        │
-│   60 % ─    ╭───────╯        ╰─────────╯                           │
-│   40 % ─────╯                                                       │
-│         2022       2023       2024       2025                       │
-│                                                                     │
-│   ━━  Placement Rate (Institution)    ╌╌  Industry Average          │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────────┐
-│  STUDENT PLACEMENT TABLE                                            │
-│  [ 🔍 Search student name... ]   Filter: [ Branch ▼ ] [ Status ▼ ] │
-│                                                                     │
-│  ┌──────────────────┬───────┬──────┬────────────┬──────────────┐   │
-│  │ Student Name     │ Branch│ CGPA │ Company    │ Package      │   │
-│  ├──────────────────┼───────┼──────┼────────────┼──────────────┤   │
-│  │ Student A        │ CSE   │ 8.7  │ Company A  │ ₹ 42.0 LPA   │   │
-│  │ Student B        │ CSE   │ 8.5  │ Company B  │ ₹ 28.0 LPA   │   │
-│  │ Student C        │ IT    │ 8.2  │ Company C  │ ₹ 22.0 LPA   │   │
-│  │ Student D        │ ECE   │ 8.0  │ Company D  │ ₹ 14.5 LPA   │   │
-│  │ Student E        │ CSE   │ 7.9  │ Company E  │ ₹  8.0 LPA   │   │
-│  └──────────────────┴───────┴──────┴────────────┴──────────────┘   │
-│  Showing 1–5 of 874   [ < 1  2  3  ...  175 > ]                     │
-└─────────────────────────────────────────────────────────────────────┘
++----------------------------------------------------------+
+| [≡ Menu]   AI Placement Platform         [Bell] [Avatar] |
++----------------------------------------------------------+
+| Sidebar:            |  RESUME UPLOAD & ANALYSIS          |
+| [🏠 Dashboard]      |                                    |
+| [📄 Resume]  ◄      |  Step 1 of 2: Upload Resume        |
+| [✨ Recommendations]|                                    |
+| [📋 Applications]   |  +------------------------------+  |
+|                     |  |                              |  |
+|                     |  |   ☁  Drag & Drop Here        |  |
+|                     |  |                              |  |
+|                     |  |   or  [Browse File]          |  |
+|                     |  |                              |  |
+|                     |  |   Supported: PDF, DOCX       |  |
+|                     |  |   Max size: 5MB              |  |
+|                     |  +------------------------------+  |
+|                     |                                    |
+|                     |  [ UPLOAD & ANALYSE ]              |
+|                     |  ---------------------------------- |
+|                     |  Step 2 of 2: AI Feedback          |
+|                     |                                    |
+|                     |  Resume Score:  [ ===== 73/100 ]  |
+|                     |                                    |
+|                     |  ✅ STRENGTHS                      |
+|                     |  • Strong ML skill keywords found  |
+|                     |  • Work experience clearly listed  |
+|                     |                                    |
+|                     |  ⚠️  IMPROVEMENTS                  |
+|                     |  • Add a professional summary      |
+|                     |  • Quantify achievements           |
+|                     |  • Include certifications section  |
+|                     |                                    |
+|                     |  EXTRACTED SKILLS:                 |
+|                     |  [Python] [SQL] [React] [TensorFlow]|
+|                     |                                    |
+|                     |  [Re-Upload]   [Save to Profile]  |
++----------------------------------------------------------+
 ```
+
+### Interactions
+- Drag-and-drop zone with upload progress bar
+- AI analysis result loads inline (no page reload)
+- Extracted skills can be auto-synced to student profile
+- Score breakdown available on hover/click per section
 
 ---
 
-## Screen Flow
+## 6. Job Search & Filtering
+
+### Purpose
+Students browse the full job/internship listing with robust search and filter controls.
+
+### Screen: Job Search Page
 
 ```
-┌─────────────┐       ┌──────────────────────┐
-│  Dashboard  │──────▶│  Student Profile      │
-│  (Screen 1) │       │  + AI Match Score     │
-└─────────────┘       │  (Screen 2)           │
-       │              └──────────────────────┘
-       │
-       ▼
-┌──────────────────────────┐       ┌────────────────────┐
-│  Company & Drive Mgmt    │──────▶│  Reports &         │
-│  (Screen 3)              │       │  Analytics         │
-└──────────────────────────┘       │  (Screen 4)        │
-                                   └────────────────────┘
++----------------------------------------------------------+
+| [≡ Menu]   AI Placement Platform         [Bell] [Avatar] |
++----------------------------------------------------------+
+| Sidebar:       |  JOB SEARCH & LISTINGS                  |
+| [🏠 Dashboard] |                                         |
+| [🔍 Jobs]  ◄   |  🔍 [Search by title, company, skill…] |
+| [✨ AI Recs]   |                                         |
+| [📄 Resume]    |  +----------------+  +---------------+  |
+| [📋 Apps]      |  | FILTERS        |  | RESULTS (47)  |  |
+|                |  |                |  |               |  |
+|                |  | Job Type       |  | Sort by: [Relevance ▼]|
+|                |  | [x] Full-Time  |  |               |  |
+|                |  | [x] Internship |  | +------------+|  |
+|                |  | [ ] Part-Time  |  | |SDE Intern  ||  |
+|                |  |                |  | |Google      ||  |
+|                |  | Location       |  | |Bangalore   ||  |
+|                |  | [____________] |  | |₹60K/month  ||  |
+|                |  |                |  | |⏰ 12 days  ||  |
+|                |  | Salary Range   |  | |[Apply →]   ||  |
+|                |  | ₹[__] to ₹[__] |  | +------------+|  |
+|                |  |                |  |               |  |
+|                |  | Min CGPA: [__] |  | +------------+|  |
+|                |  |                |  | |ML Engineer ||  |
+|                |  | Branch         |  | |Amazon      ||  |
+|                |  | [x] CSE        |  | |Remote      ||  |
+|                |  | [x] IT         |  | |₹8 LPA      ||  |
+|                |  | [ ] ECE        |  | |⏰ 5 days   ||  |
+|                |  |                |  | |[Apply →]   ||  |
+|                |  | [Apply Filters]|  | +------------+|  |
+|                |  | [Clear All]    |  |               |  |
+|                |  +----------------+  | [Load More]   |  |
+|                |                      +---------------+  |
++----------------------------------------------------------+
 ```
+
+### Interactions
+- Search bar auto-suggests job titles and companies
+- Filter panel updates results in real time
+- Each job card links to a full Job Detail page
+- Saved/applied jobs are visually marked on the card
+
+---
+
+## 7. Application Tracking
+
+### Purpose
+Students monitor the end-to-end status of every job application in one place.
+
+### Screen: Application Tracker
+
+```
++----------------------------------------------------------+
+| [≡ Menu]   AI Placement Platform         [Bell] [Avatar] |
++----------------------------------------------------------+
+| Sidebar:            |  MY APPLICATIONS                   |
+| [🏠 Dashboard]      |                                    |
+| [📋 Applications] ◄ |  Summary:  Applied: 6 | Shortlisted: 2 | Rejected: 1 |
+| [🔍 Jobs]           |                                    |
+| [✨ AI Recs]        |  Filter: [All Status ▼]  [All Companies ▼]          |
+|                     |                                    |
+|                     | Company      | Role        | Status     | Date     |
+|                     | ------------ | ----------- | ---------- | -------- |
+|                     | Google       | SDE Intern  | ✅ Shortlist| 01 Jul  |
+|                     |              |             | [Track →]  |          |
+|                     | ------------ | ----------- | ---------- | -------- |
+|                     | Amazon       | ML Engineer | 🔵 Applied | 28 Jun  |
+|                     |              |             | [Track →]  |          |
+|                     | ------------ | ----------- | ---------- | -------- |
+|                     | Swiggy       | Data Analyst| ❌ Rejected| 25 Jun  |
+|                     |              |             | [Track →]  |          |
+|                     | ------------ | ----------- | ---------- | -------- |
+|                     | Flipkart     | Backend SDE | 🟡 In Review| 20 Jun |
+|                     |              |             | [Track →]  |          |
+|                     |                                    |
+|                     |  APPLICATION TIMELINE (Google)     |
+|                     |                                    |
+|                     |  Applied → Screening → Shortlisted → Interview → Offer |
+|                     |    ●   →      ●      →      ●      →    ○      →   ○  |
+|                     |  (completed stages filled, upcoming hollow)            |
+|                     |                                    |
+|                     |  Next Step: Technical Interview on 10 Jul 2025        |
+|                     |  [Add to Calendar]  [View Offer Letter]               |
++----------------------------------------------------------+
+```
+
+### Interactions
+- Status badges color-coded: ✅ Green (Shortlisted), 🔵 Blue (Applied), 🟡 Yellow (In Review), ❌ Red (Rejected)
+- Timeline tracker visible per application on expand/click
+- "Add to Calendar" links to interview scheduling module
+- Notification badge on sidebar updates when status changes
+
+---
+
+
+## Design Principles Applied
+
+| Principle | Application |
+|---|---|
+| Role-Based Access | Different dashboards and sidebar menus per user type |
+| Progressive Disclosure | Details revealed on expand/click, not upfront |
+| AI Transparency | Match % and skill gap clearly shown to students |
+| Status Visibility | Color-coded badges and timeline trackers throughout |
+| Mobile Readiness | Sidebar collapses to hamburger menu on smaller screens |
+| Feedback Loops | Profile strength meter and resume score guide improvement |
 
 ---
 

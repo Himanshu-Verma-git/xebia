@@ -1,0 +1,2 @@
+# Employees(emp_id, name, salary, dept_id)
+# Departments(dept_id, dept_name)
